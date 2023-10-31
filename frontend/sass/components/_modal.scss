@@ -1,0 +1,87 @@
+.modal {
+  position: fixed;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s;
+  z-index: 99999999;
+
+  width: 45rem;
+  max-width: 95%;
+  max-height: 80vh;
+  background-color: #292d36;
+  border-radius: 4px;
+
+  display: flex;
+  flex-direction: column;
+
+  &--open {
+    top: 50%;
+  }
+
+  &__header {
+    flex-shrink: 0;
+
+    padding: 1.8rem 2.4rem;
+    border-bottom: 1px solid #333;
+    text-transform: uppercase;
+    font-weight: 500;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+  }
+
+  &__heading {
+    text-transform: uppercase;
+    font-weight: 600;
+
+    margin-right: auto;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  &__action {
+    flex-shrink: 0;
+    cursor: pointer;
+
+    & ion-icon {
+      display: block;
+      width: 2.4rem;
+      height: 2.4rem;
+      pointer-events: none;
+    }
+  }
+
+  &__body {
+    flex: 1;
+
+    padding: 2.4rem;
+    min-width: 0;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    & .form-label {
+      background-color: #292d36;
+    }
+  }
+}

@@ -1,0 +1,397 @@
+.cart-loader {
+  grid-column: 1/-1;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart {
+  min-height: calc(100vh - 227px);
+
+  display: grid;
+  grid-template-columns: 60fr 40fr;
+
+  @media (max-width: 1050px) {
+    grid-template-columns: 1fr;
+  }
+
+  & .header-2__menu {
+    @media (max-width: 1050px) {
+      display: none;
+    }
+  }
+
+  &__left {
+    background-color: #24242c;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__left-main {
+    padding-left: calc(calc(100vw - 130rem) / 2);
+
+    padding-top: 9.6rem;
+    padding-bottom: 9.6rem;
+  }
+
+  &__right {
+    background-color: #171a21;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__right-main {
+    padding-right: calc(calc(100vw - 130rem) / 2);
+
+    padding-top: 9.6rem;
+    padding-bottom: 9.6rem;
+
+    @media (max-width: 1050px) {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.cart-block {
+  padding-left: 2.4rem;
+
+  @media (max-width: 1050px) {
+    padding: 0 4.8rem;
+  }
+
+  @media (max-width: 500px) {
+    padding: 0 2.4rem;
+  }
+
+  &__subtotal {
+    margin-top: 4.8rem;
+  }
+
+  &__heading {
+    font-size: 2.4rem;
+    font-family: "Cormorant", sans-serif;
+    margin-bottom: 2.4rem;
+
+    padding-left: 5.6rem;
+
+    @media (max-width: 700px) {
+      text-align: center;
+      padding-left: 0;
+    }
+  }
+
+  &__products {
+    padding: 5.6rem;
+    background-color: #000;
+    position: relative;
+
+    @media (max-width: 700px) {
+      padding: 3.6rem;
+    }
+
+    @media (max-width: 600px) {
+      padding: 0;
+      background-color: transparent;
+    }
+  }
+
+  &__products-label {
+    background-color: #fdd69b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2rem;
+    width: 5.6rem;
+    font-size: 1.2rem;
+    color: #25252d;
+    font-weight: 600;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: rotate(-90deg) translate(0, -175%);
+    transform-origin: top;
+
+    @media (max-width: 600px) {
+      display: none;
+    }
+  }
+
+  &__products-info {
+    position: absolute;
+    top: 0;
+    left: 5.6rem;
+    background-color: #3f3e46;
+    padding: 3px 0.8rem;
+    display: inline-block;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    transform: translateY(-50%);
+
+    @media (max-width: 700px) {
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @media (max-width: 600px) {
+      display: none;
+    }
+  }
+}
+
+.cart-table {
+  border-collapse: collapse;
+  width: 100%;
+
+  & tr:not(:last-child) {
+    border-bottom: 2.4rem solid transparent;
+
+    @media (max-width: 600px) {
+      border-bottom: 1.2rem solid #24242c;
+    }
+  }
+
+  & tr {
+    @media (max-width: 600px) {
+      background-color: #000000;
+    }
+  }
+
+  & td:not(:last-child) {
+    padding-right: 2.4rem;
+
+    @media (max-width: 600px) {
+      padding-right: 1.2rem;
+    }
+
+    @media (max-width: 450px) {
+      padding-right: 6px;
+    }
+  }
+
+  &__price {
+    @media (max-width: 600px) {
+      display: none;
+    }
+  }
+}
+
+.cart-product {
+  padding: 1rem 0;
+  width: 8rem;
+  background-color: #25262c;
+  border: 2px solid #292929;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 600px) {
+    background-color: #25252d;
+  }
+
+  &__img {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+  }
+}
+
+.cart-product-info {
+  margin-top: -1.2rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (max-width: 450px) {
+    gap: 3px;
+  }
+
+  &__name {
+    font-size: 1.8rem;
+    color: #777;
+    font-family: "Cormorant", sans-serif;
+    font-weight: 600;
+
+    @media (max-width: 450px) {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__stars {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    & ion-icon {
+      display: block;
+      width: 1.2rem;
+      height: 1.2rem;
+      color: #ffdea0;
+    }
+  }
+}
+
+.cart-product-info-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  @media (max-width: 450px) {
+    gap: 3px;
+  }
+
+  &__key {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #777;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  &__value {
+    font-size: 1.6rem;
+    color: #fff;
+
+    @media (max-width: 450px) {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.cart-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+
+  & span {
+    cursor: pointer;
+
+    & ion-icon {
+      display: block;
+      width: 1.8rem;
+      height: 1.8rem;
+      color: #fff;
+    }
+  }
+}
+
+.cart-remove {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+
+  height: 3.6rem;
+
+  &__text {
+    text-transform: uppercase;
+    color: #777;
+
+    @media (max-width: 650px) {
+      display: none;
+    }
+  }
+
+  &__icon-block {
+    align-self: stretch;
+    width: 3.6rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #25262c;
+    border: 2px solid #292929;
+    cursor: pointer;
+
+    @media (max-width: 600px) {
+      background-color: transparent;
+      border: none;
+    }
+
+    & ion-icon {
+      display: block;
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+
+    &:hover {
+      background-color: #fdd69b;
+      border: 2px solid #fdd69b;
+
+      @media (max-width: 600px) {
+        background-color: transparent;
+        border: none;
+      }
+
+      & ion-icon {
+        color: #25252d;
+
+        @media (max-width: 600px) {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.payment-block {
+  padding: 0 2.4rem 0 4.8rem;
+
+  @media (max-width: 1300px) {
+    padding: 0 2.4rem 0 2.4rem;
+  }
+
+  @media (max-width: 1100px) {
+    max-width: 50rem;
+    margin: auto;
+  }
+
+  @media (max-width: 1050px) {
+    padding: 4.8rem;
+  }
+
+  @media (max-width: 500px) {
+    padding: 2.4rem;
+  }
+
+  &__heading {
+    font-size: 2.4rem;
+    font-family: "Cormorant", sans-serif;
+    margin-bottom: 6px;
+  }
+
+  &__text {
+    margin-bottom: 2.4rem;
+  }
+
+  &__info {
+    background-color: #3f3e46;
+    padding: 3px 0.8rem;
+    display: inline-block;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+
+    margin-bottom: 2.4rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    & .form-label {
+      background-color: #171a21 !important;
+    }
+  }
+}

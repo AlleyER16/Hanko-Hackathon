@@ -1,0 +1,356 @@
+.single-product {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.6rem;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 7.2rem;
+
+    padding: 0 4.8rem;
+  }
+
+  @media (max-width: 600px) {
+    padding: 0;
+  }
+
+  &__container {
+    padding-top: 9.6rem;
+    padding-bottom: 14rem;
+  }
+
+  &__product {
+    flex: 1;
+
+    position: relative;
+
+    @media (max-width: 800px) {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 4.8rem;
+    }
+  }
+
+  &__product-img-block {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 130%;
+    transform: translateY(-50%);
+
+    border-radius: 50%;
+    padding: 2.4rem;
+    border: 1px solid #2c2e35;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 1100px) {
+      height: 110%;
+    }
+
+    @media (max-width: 800px) {
+      position: initial;
+      top: initial;
+      right: initial;
+      transform: initial;
+      height: 25rem;
+      order: -1;
+    }
+
+    & img {
+      flex-shrink: 0;
+
+      display: block;
+      width: auto;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+  &__product-main {
+    width: 80%;
+
+    padding: 4.8rem 12.8rem;
+    position: relative;
+    background-color: #191921;
+
+    position: relative;
+
+    @media (max-width: 1100px) {
+      padding: 4.8rem;
+    }
+
+    @media (max-width: 800px) {
+      width: 100%;
+    }
+  }
+
+  &__label {
+    background-color: #fdd69b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2rem;
+    width: 5.6rem;
+    font-size: 1.2rem;
+    color: #25252d;
+    font-weight: 600;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: rotate(-90deg) translate(0, -175%);
+    transform-origin: top;
+  }
+
+  &__calories {
+    position: absolute;
+    top: 0;
+    left: 12.8rem;
+    background-color: #3f3e46;
+    padding: 3px 0.8rem;
+    display: inline-block;
+    font-size: 1.2rem;
+    transform: translateY(-50%);
+  }
+
+  &__btn {
+    position: absolute;
+    bottom: 0;
+    left: 12.8rem;
+    width: auto;
+    transform: translateY(50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+
+    cursor: pointer;
+    height: 4.8rem;
+    background-color: #ffdea0;
+    border: none;
+    color: #25252d;
+    text-transform: uppercase;
+    font-family: inherit;
+    padding: 0 3.6rem;
+
+    & ion-icon {
+      display: block;
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+
+  &__product-content {
+    max-width: 35rem;
+
+    @media (max-width: 800px) {
+      width: 100%;
+      max-width: initial;
+    }
+  }
+
+  &__name {
+    font-family: "Cormorant", sans-serif;
+    font-size: 4.8rem;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+
+    @media (max-width: 800px) {
+      text-align: center;
+    }
+
+    @media (max-width: 650px) {
+      font-size: 3.6rem;
+    }
+  }
+
+  &__stars {
+    margin-bottom: 1.2rem;
+
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    @media (max-width: 800px) {
+      justify-content: center;
+    }
+
+    & ion-icon {
+      display: block;
+      width: 1.6rem;
+      height: 1.6rem;
+      color: #ffdea0;
+    }
+  }
+
+  &__ingredients-heading {
+    margin-bottom: 1.2rem;
+    color: #777;
+    font-size: 1.8rem;
+    font-family: "Cormorant", sans-serif;
+
+    @media (max-width: 800px) {
+      text-align: center;
+    }
+  }
+
+  &__ingredients {
+    list-style: none;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+
+    & li {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+
+      color: #777;
+
+      @media (max-width: 800px) {
+        justify-content: center;
+      }
+
+      & span {
+        display: block;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: #ffdea0;
+      }
+    }
+  }
+
+  &__similar {
+    flex: 0 0 15rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+
+    @media (max-width: 1200px) {
+      flex: initial;
+
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+}
+
+.single-product-loader {
+  height: 50rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.similar-product {
+  margin-top: 2.4rem;
+  padding: 0 1.8rem 1rem;
+  background-color: #25252d;
+  border: 2px solid #25252d;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+
+  text-align: center;
+  cursor: pointer;
+
+  position: relative;
+
+  @media (max-width: 1200px) {
+    width: 15rem;
+    background-color: #292d36;
+  }
+
+  @media (max-width: 400px) {
+    padding: 0 1.2rem 1rem;
+  }
+
+  &--active {
+    border: 2px solid #ffdea0;
+
+    margin-bottom: 3.6rem;
+
+    @media (max-width: 1200px) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: -2.4rem;
+  }
+
+  &__name {
+    color: #777;
+    font-weight: 600;
+    font-family: "Cormorant", sans-serif;
+  }
+
+  &--active &__name {
+    color: #ffdea0;
+    font-weight: 600;
+  }
+
+  &__price {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
+
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    height: 3.6rem;
+    padding-left: 2px;
+    white-space: nowrap;
+
+    color: #fff;
+
+    opacity: 0;
+
+    @media (max-width: 1200px) {
+      transform: translate(-50%, 150%);
+    }
+  }
+
+  &--active &__price {
+    opacity: 1;
+  }
+
+  &__price-icon-block {
+    align-self: stretch;
+
+    width: 3.6rem;
+    background-color: #ffdea0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & ion-icon {
+      display: block;
+      width: 1.8rem;
+      height: 1.8rem;
+      color: #25252d;
+    }
+  }
+}

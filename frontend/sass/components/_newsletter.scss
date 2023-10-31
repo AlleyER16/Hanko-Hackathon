@@ -1,0 +1,160 @@
+.newsletter {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  margin-top: 9.6rem;
+
+  @media (max-width: 550px) {
+    grid-template-columns: 1fr;
+  }
+
+  &__left {
+    padding: 5.6rem;
+    background-color: #25252d;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    @media (max-width: 700px) {
+      padding: 2.4rem;
+    }
+
+    @media (max-width: 550px) {
+      height: 30rem;
+      padding: 5.6rem;
+    }
+
+    @media (max-width: 550px) {
+      background-color: #070008;
+
+      &--1 {
+        background-color: #25252d;
+      }
+    }
+  }
+
+  &__left-img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    @media (max-width: 700px) {
+      height: 40rem;
+    }
+  }
+
+  &__left-main {
+    position: relative;
+    z-index: 99;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  &__heading {
+    font-size: 5.6rem;
+    text-align: right;
+    font-family: "Cormorant", sans-serif;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1.6rem;
+
+    @media (max-width: 700px) {
+      font-size: 4rem;
+    }
+
+    @media (max-width: 550px) {
+      font-size: 4.8rem;
+    }
+  }
+
+  &__promo {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: #aaa;
+
+    & span {
+      display: inline-flex;
+      padding: 3px 6px;
+      background-color: #ffdea0;
+      color: #25252d;
+      text-transform: initial;
+    }
+  }
+
+  &__main {
+    display: flex;
+    align-items: center;
+
+    background-color: #25252d;
+
+    & .form-label {
+      background-color: #25252d !important;
+    }
+
+    &--1 {
+      background-color: #070008;
+
+      & .form-label {
+        background-color: #070008 !important;
+      }
+    }
+  }
+
+  &__main-img {
+    flex: 0 0 25rem;
+    align-self: stretch;
+
+    position: relative;
+
+    & img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    @media (max-width: 1250px) {
+      display: none;
+    }
+  }
+
+  &__form {
+    width: 45rem;
+    max-width: 100%;
+
+    padding: 5.6rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+
+    @media (max-width: 700px) {
+      padding: 4.8rem 2.4rem;
+
+      max-width: 45rem;
+      width: 100%;
+    }
+
+    @media (max-width: 550px) {
+      max-width: initial;
+    }
+  }
+
+  &__form-heading {
+    font-size: 2.8rem;
+    font-family: "Cormorant", sans-serif;
+    font-weight: 400;
+    line-height: 0.5;
+  }
+}

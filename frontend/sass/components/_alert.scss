@@ -1,0 +1,63 @@
+.alert {
+  background-color: #fff;
+  color: #555;
+  border-radius: 6px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+
+  &__icon-box {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 4.8rem;
+
+    & ion-icon {
+      color: #fff;
+      display: block;
+      height: 2.4rem;
+      width: 2.4rem;
+    }
+  }
+
+  &--error &__icon-box {
+    background-color: #ff6b6b;
+  }
+
+  &--warning &__icon-box {
+    background-color: #f08c00;
+  }
+
+  &--success &__icon-box {
+    background-color: #51cf66;
+  }
+
+  &__message {
+    flex: 1 1;
+    font-size: 1.4rem;
+    padding: 1.2rem 2.4rem;
+  }
+
+  &__close-block {
+    padding-right: 1.2rem;
+    padding-top: 0.8rem;
+  }
+
+  &__close {
+    align-items: center;
+    background-color: #e5e5e5;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-flex;
+    height: 2rem;
+    justify-content: center;
+    width: 2rem;
+
+    & ion-icon {
+      color: #4f4f4f;
+      display: block;
+      height: 1.4rem;
+      width: 1.4rem;
+    }
+  }
+}

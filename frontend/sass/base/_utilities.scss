@@ -1,0 +1,60 @@
+.container {
+  max-width: 130rem;
+  margin: auto;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+}
+
+.pr-small {
+  padding-right: 2.4rem;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999999;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.mb-small {
+  margin-bottom: 0.8rem;
+}
+
+.mb-medium {
+  margin-bottom: 4.8rem;
+}
+
+.mb-large {
+  margin-bottom: 7.2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.link {
+  color: #fdd69b;
+  cursor: pointer;
+}
+
+.py-medium {
+  padding-top: 3.6rem;
+  padding-bottom: 3.6rem;
+}
+
+.grid-full {
+  grid-column: 1 / -1;
+}

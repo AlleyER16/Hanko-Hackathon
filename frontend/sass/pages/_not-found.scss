@@ -1,0 +1,81 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-bottom: 9.6rem;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+
+  z-index: 99;
+
+  &__404 {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.4rem;
+
+    position: relative;
+
+    margin-bottom: 2.4rem;
+
+    & > p {
+      font-family: "Cormorant", sans-serif;
+      font-weight: 400;
+      font-size: 30rem;
+      line-height: 1.1;
+
+      @media (max-width: 450px) {
+        font-size: 25rem;
+      }
+
+      @media (max-width: 350px) {
+        font-size: 20rem;
+      }
+    }
+
+    & div {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+
+      font-size: 2.4rem;
+      font-family: "Cormorant", sans-serif;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    font-size: 1.6rem;
+
+    margin-bottom: 3.6rem;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    cursor: pointer;
+    color: #fdd69b;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    padding: 1.2rem 2.4rem;
+
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: #fdd69b;
+      color: #25252d;
+    }
+
+    & ion-icon {
+      display: block;
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  }
+}

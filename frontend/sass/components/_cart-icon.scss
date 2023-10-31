@@ -1,0 +1,42 @@
+.cart-icon {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 5.6rem;
+  height: 5.6rem;
+  background-color: #fdd69b;
+  color: #25252d;
+  cursor: pointer;
+
+  z-index: 9999;
+
+  & ion-icon {
+    display: block;
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  & span {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    background-color: red;
+    color: #fff;
+
+    font-size: 1rem;
+  }
+}

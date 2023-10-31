@@ -1,0 +1,128 @@
+.product {
+  position: relative;
+
+  padding: 3.6rem;
+  padding-top: 0;
+  background-color: #25252d;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+
+  margin-top: 3.6rem;
+
+  @media (max-width: 600px) {
+    padding: 1.8rem;
+    padding-top: 0;
+    padding-bottom: 3.6rem;
+  }
+
+  &__img {
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50%;
+
+    margin-top: -3.6rem;
+
+    @media (max-width: 600px) {
+      height: 15rem;
+      width: 15rem;
+    }
+
+    @media (max-width: 400px) {
+      height: 12rem;
+      width: 12rem;
+    }
+  }
+
+  &__label {
+    background-color: #fdd69b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2rem;
+    width: 5.6rem;
+    font-size: 1.2rem;
+    color: #25252d;
+    font-weight: 600;
+    transform: rotate(-90deg) translate(-50%, -125%);
+    transform-origin: top;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &__name {
+    font-size: 1.8rem;
+    font-family: "Cormorant", sans-serif;
+    color: #777;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+
+    @media (max-width: 400px) {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__stars {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    & ion-icon {
+      display: block;
+      width: 1.6rem;
+      height: 1.6rem;
+      color: #ffdea0;
+
+      @media (max-width: 400px) {
+        width: 1.2rem;
+        height: 1.2rem;
+      }
+    }
+  }
+
+  &__price {
+    font-size: 1.6rem;
+  }
+
+  &__btn {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, 50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+
+    cursor: pointer;
+    height: 4.8rem;
+    background-color: #181820;
+    border: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: inherit;
+
+    @media (max-width: 400px) {
+      font-size: 1.2rem;
+      width: 85%;
+    }
+
+    & ion-icon {
+      display: block;
+      width: 2.4rem;
+      height: 2.4rem;
+
+      @media (max-width: 400px) {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+    }
+  }
+}
