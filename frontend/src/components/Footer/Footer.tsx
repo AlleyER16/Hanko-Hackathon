@@ -44,11 +44,11 @@ const Footer = () => {
             </li>
             {loggedIn ? (
               <>
-                <li>
+                {/* <li>
                   <Link to="/orders" className="footer__link">
                     Orders
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to="/profile" className="footer__link">
                     Profile

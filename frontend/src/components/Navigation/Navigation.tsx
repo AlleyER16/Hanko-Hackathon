@@ -52,11 +52,11 @@ const Navigation = () => {
           </li>
           {loggedIn ? (
             <>
-              <li className="navigation__item">
+              {/* <li className="navigation__item">
                 <Link to="/cart" className="navigation__link">
                   <IonIcon icon={cartOutline} /> Orders
                 </Link>
-              </li>
+              </li> */}
               <li className="navigation__item">
                 <Link to="/profile" className="navigation__link">
                   <IonIcon icon={personOutline} /> Profile
