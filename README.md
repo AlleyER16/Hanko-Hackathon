@@ -83,5 +83,8 @@ A simple node express application. Folder structure
 # Back-end deployment instruction
 
 1. Set up the .env file based on the .env_template file and fill in the appropriate variables
-2. run the `load-data.js` file in the `init` folder to load initial meals data and meal types and also create a structure for the static files. Note: run from the backend as the current working directory in the command line as it uses the same .env file
-3. upload resulting meals folder to a static file server that can serve the files for the applicarion
+2. Create a mongodb instance and paste the MONGO_URI in the .env file
+3. run the `load-data.js` file in the `init` folder to load initial meals data and meal types and also create a structure for the static files. Note: run from the backend as the current working directory in the command line as it uses the same .env file
+4. upload resulting meals folder to a static file server that can serve the files for the application
+5. Run with `npm run dev` to run with nodemon or `npm start` for start the application once
+6. Make sure to add the base url for the backend application to the frontend's .env to link them both
