@@ -12,6 +12,7 @@ const { expressjwt: jwt } = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
 const cookieParser = require("cookie-parser");
 
+// Routers
 const {
   ordersRouter,
   mealsRouter,
@@ -20,7 +21,10 @@ const {
   hooksRouter,
 } = require("./routers");
 
+// App Error Class
 const AppError = require("./utils/app-error.util");
+
+// Global Error Handler
 const globalErrorHandler = require("./controllers/error.controller");
 
 // Creating app instance
@@ -90,6 +94,7 @@ const authMiddleware = jwt({
   },
 });
 
+// protected with auth middleware
 app.use("/orders", authMiddleware, ordersRouter);
 
 app.use("*", (req, res, next) =>
