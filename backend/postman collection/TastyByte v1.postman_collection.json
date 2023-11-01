@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "f348e73f-47cc-4fd0-abfd-4729f3da1678",
+		"name": "TastyByte v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18624203"
+	},
+	"item": [
+		{
+			"name": "Newsletter",
+			"item": [
+				{
+					"name": "Add Newsletter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Tomiwa Amole\",\r\n    \"EmailAddress\": \"tomiwamole@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/newsletter",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"newsletter"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Meal Types",
+			"item": [
+				{
+					"name": "Get Meal Types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/meal-types",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"meal-types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Meals",
+			"item": [
+				{
+					"name": "Get Meals",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/meals",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"meals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Meal",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/meals/65405f6f634441709014bbbe",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"meals",
+								"65405f6f634441709014bbbe"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjEwNWY0ZDU5LWY1NGItNDA0Yi04NDU3LTBhNGFhM2Q0N2I4NCIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiYWxsZXktdGFzdHlieXRlLm5ldGxpZnkuYXBwIl0sImV4cCI6MTY5ODc3NDUwMCwiaWF0IjoxNjk4NzcwOTAwLCJzdWIiOiI4MWEyNTQwOS1mZjg4LTQ4OTctYjA5ZS1jYWVjZDgxZTViZjcifQ.nWTH1i_QWTUNr-Sz688cQC2U5ZTukt4ucPNprNWcTWuh-UAwEeN1TGAvS4Zxgbr5Wjeu31V0kQSE83RyWRrpJ2z4vaWWQ-f-vf5gCt84cjKJJWbmRgHH3IEA6fg9QywBDLcDLAn-OG-LOAVZBV-KekYigPMGOhmw7qd2C8SUxdMYAckSdwGKf-5rM0cPDcEy4uNaVLJw-Uk5OFQiqKVeTEVt9Sit1mk69lZVAl98blsjTzlwsur08pgsy2jXvNPbxmj2mifqxJPiaIaGjBLk-1OOKTAwg1dnOXwbrenXwE8iDBFKA0yq6yeADqKVlaj0qxRxqYK2BhzRQ-vqz3EWCdEgFyYp8StWm8OvR8wJFGocy4Jvq09YbkqQ0mrEYTPdje_WnwdDZg0yg2mYu4YHKtSEfWyFgI8MtHJXXB7Cm0bDAmLkkwWVn_s4zSPJvvOo9QK_CmGRlRcEC8uHMSWQHOTwz6lGEP7N_PpC5czduccB_eBD6_l04okhx469oNTUXG_Cu2sb8MrxtvTE6EWvUIJbmbaGxqj-Wj24J-aj1xftEl0ShtE1hadAcqUpaNm7OWpca3ySZ4_yBG8Wqg4Ta3UBGyLvN6cC4aMHtJ1-_3XVhwnhNsgqGGTkIyfzZanXw7c5Uw5_8-445nPlfuLm18e-dChCy165_LFBh1mNaOg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"meals\": [\r\n        {\r\n            \"_id\": \"65405f6f634441709014bbbc\", \r\n            \"quantity\": 1\r\n        }, \r\n        {   \r\n            \"_id\": \"65405f6f634441709014bbbf\", \r\n            \"quantity\": 1\r\n        }\r\n    ],\r\n    \"shippingInfo\": {\r\n        \"Name\": \"Tomiwa\", \r\n        \"Telephone\": \"+2349073193054\", \r\n        \"Address\": \"No 2, Bot Street\", \r\n        \"ExtraInstructions\": \"\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/orders/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"orders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjEwNWY0ZDU5LWY1NGItNDA0Yi04NDU3LTBhNGFhM2Q0N2I4NCIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiYWxsZXktdGFzdHlieXRlLm5ldGxpZnkuYXBwIl0sImV4cCI6MTY5ODg3NzkyNywiaWF0IjoxNjk4ODc0MzI3LCJzdWIiOiI4MWEyNTQwOS1mZjg4LTQ4OTctYjA5ZS1jYWVjZDgxZTViZjcifQ.zbrIdgdpVwSeIyLHmMU1_8V7WZ6fvy9eY5BBiszmuMMK2ng7_IgxSLAiCRfzv73JnRxYR5bKjrejnqtj-SFix3CXR3zyPSI89MUyh7sRLerTouUan5trHuGhJmMg98qtC1vzWcu7TcxHtr-LYn4GU64g5HXCAioC_iVZcFvQG6dbucOBsHQgN06hZkFaOjTqMbWKqtROJ6hdJXpszY7saCJ9kmnGYW3ZK2WZSWVkLPCfnO5HbH8kydDi4JCVPapWPhK59nS-3BzRS_YkGD9Lbqk3c22bV_vLs8bJ3W3iUborjTkV3J4iKQqYSC7elaGbqr05k9ctRt6wNqo_rxI4y4Fd2Z-pxeoCpTRuIJ3nnvUN697DLXv65lN2XZ12yKnrqWGgKlCDZYq4FZO6EVTW-3FuCNbaUjecpaVQDxpz3LrbGcLloXGRthFBdIvvocoN_jfWjzx6QZMd-Tgb4D26ui8-_K7uotplZzl4mT_zRenMQqjqjpCEVXDek1VWeUteb5BZIu3H_dPeCXggCiZCKan2w_3kZbWAikAWl-h9bcXjjGYhUJPwkyRieqhdawLZNXQwFrXnEl-m4qZFp_3RaSasjV1OrvY6dyv6OPdL9szaOz3h7Y9ibPtR6MsYA1qNzLiVoyKo7_6QZRitq8RXr1nbl6EPB2yg0d4CDH6IN10",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/orders/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"orders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjEwNWY0ZDU5LWY1NGItNDA0Yi04NDU3LTBhNGFhM2Q0N2I4NCIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiYWxsZXktdGFzdHlieXRlLm5ldGxpZnkuYXBwIl0sImV4cCI6MTY5ODc3NDUwMCwiaWF0IjoxNjk4NzcwOTAwLCJzdWIiOiI4MWEyNTQwOS1mZjg4LTQ4OTctYjA5ZS1jYWVjZDgxZTViZjcifQ.nWTH1i_QWTUNr-Sz688cQC2U5ZTukt4ucPNprNWcTWuh-UAwEeN1TGAvS4Zxgbr5Wjeu31V0kQSE83RyWRrpJ2z4vaWWQ-f-vf5gCt84cjKJJWbmRgHH3IEA6fg9QywBDLcDLAn-OG-LOAVZBV-KekYigPMGOhmw7qd2C8SUxdMYAckSdwGKf-5rM0cPDcEy4uNaVLJw-Uk5OFQiqKVeTEVt9Sit1mk69lZVAl98blsjTzlwsur08pgsy2jXvNPbxmj2mifqxJPiaIaGjBLk-1OOKTAwg1dnOXwbrenXwE8iDBFKA0yq6yeADqKVlaj0qxRxqYK2BhzRQ-vqz3EWCdEgFyYp8StWm8OvR8wJFGocy4Jvq09YbkqQ0mrEYTPdje_WnwdDZg0yg2mYu4YHKtSEfWyFgI8MtHJXXB7Cm0bDAmLkkwWVn_s4zSPJvvOo9QK_CmGRlRcEC8uHMSWQHOTwz6lGEP7N_PpC5czduccB_eBD6_l04okhx469oNTUXG_Cu2sb8MrxtvTE6EWvUIJbmbaGxqj-Wj24J-aj1xftEl0ShtE1hadAcqUpaNm7OWpca3ySZ4_yBG8Wqg4Ta3UBGyLvN6cC4aMHtJ1-_3XVhwnhNsgqGGTkIyfzZanXw7c5Uw5_8-445nPlfuLm18e-dChCy165_LFBh1mNaOg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/orders/654134915a26fa05e22583af",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"orders",
+								"654134915a26fa05e22583af"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
