@@ -13,13 +13,13 @@ import {
 import api_client from "../../api/client";
 
 import { tRootState } from "../../store";
+import { tOrder } from "../../store/types/app.types";
 
 import Footer from "../../components/Footer/Footer";
 import Navigation from "../../components/Navigation/Navigation";
+import RippleLoader from "../../loaders/RippleLoader/RippleLoader";
 
 import { roundDP } from "../../utils/func";
-import { tOrder } from "../../store/types/app.types";
-import RippleLoader from "../../loaders/RippleLoader/RippleLoader";
 
 const Order = () => {
   const { id: orderId } = useParams();

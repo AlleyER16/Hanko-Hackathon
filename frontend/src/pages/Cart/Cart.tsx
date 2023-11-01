@@ -77,6 +77,8 @@ const Cart = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (!accessToken) return navigate("/sign-in");
+
     if (!cart.length)
       return setMessage("warning", "You have no product in cart");
 

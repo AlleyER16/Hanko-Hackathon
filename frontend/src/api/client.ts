@@ -19,7 +19,7 @@ instance.interceptors.response.use(
       if (appStateRaw) {
         const appState: tRootState = JSON.parse(appStateRaw);
 
-        appState.auth.loggedIn = false;
+        appState.auth = { loggedIn: false, accessToken: "", userId: "" };
 
         localStorage.setItem("appState", JSON.stringify(appState));
       }
