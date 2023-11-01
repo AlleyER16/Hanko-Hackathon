@@ -27,11 +27,11 @@ const Footer = () => {
                 Home
               </Link>
             </li>
-            {/* <li>
+            <li>
               <Link to="/top-dishes" className="footer__link">
                 Top Dishes
               </Link>
-            </li> */}
+            </li>
             <li>
               <Link to="/catalog" className="footer__link">
                 Catalog
@@ -44,11 +44,11 @@ const Footer = () => {
             </li>
             {loggedIn ? (
               <>
-                {/* <li>
+                <li>
                   <Link to="/orders" className="footer__link">
                     Orders
                   </Link>
-                </li> */}
+                </li>
                 <li>
                   <Link to="/profile" className="footer__link">
                     Profile

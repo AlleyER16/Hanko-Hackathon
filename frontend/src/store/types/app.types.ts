@@ -7,6 +7,7 @@ export type tMeal = {
   Name: string;
   AvgRatings: number;
   Price: number;
+  Calories: number;
   PicturePath: string;
 };
 
@@ -53,3 +54,5 @@ export type tOrder = {
   TotalAmount: number;
   Status: string;
 };
+
+export type tOrders = tOrder[];

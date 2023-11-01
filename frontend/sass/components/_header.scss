@@ -234,8 +234,11 @@
     }
   }
 
-  // &__content {
-  // }
+  &__content {
+    &--1 {
+      padding: 9.6rem 0;
+    }
+  }
 
   &__menu {
     display: flex;

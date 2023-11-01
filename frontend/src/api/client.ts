@@ -26,6 +26,7 @@ instance.interceptors.response.use(
 
       window.location.assign("/sign-in");
     }
+
     return Promise.reject(error);
   }
 );

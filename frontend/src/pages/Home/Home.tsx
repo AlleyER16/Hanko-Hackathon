@@ -20,7 +20,7 @@ import foodBg6 from "../../assets/img/food-bg-6.avif";
 import foodBg2 from "../../assets/img/food-bg-2.avif";
 import foodBg3 from "../../assets/img/food-bg-3.avif";
 
-// import shrimp from "../../assets/img/shrimp.png";
+import shrimp from "../../assets/img/shrimp.png";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -81,14 +81,14 @@ const Home = () => {
 
         <div className="header-block header-block--2">
           <img src={foodBg2} alt="" className="header-block__img" />
-          {/* <div
+          <div
             className="header-footer pr-small"
             onClick={() => navigate("/top-dishes")}
           >
             <img src={shrimp} alt="" />
             <p>Our special top dishes</p>
             <span>&rarr;</span>
-          </div> */}
+          </div>
         </div>
         <div className="header-block header-block--3">
           <img src={foodBg3} alt="" className="header-block__img" />

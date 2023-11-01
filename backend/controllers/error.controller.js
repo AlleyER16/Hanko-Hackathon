@@ -64,7 +64,11 @@ module.exports = (err, req, res, next) => {
   err.status = err.status || "err";
 
   if (process.env.NODE_ENV === "development") {
-    if (["JsonWebTokenError", "TokenExpiredError"].includes(err.name))
+    if (
+      ["JsonWebTokenError", "TokenExpiredError", "UnauthorizedError"].includes(
+        err.name,
+      )
+    )
       err.statusCode = StatusCodes.UNAUTHORIZED;
     sendErrorDev(err, res);
   } else if (process.env.NODE_ENV === "production") {
@@ -75,6 +79,8 @@ module.exports = (err, req, res, next) => {
     if (err.name === "ValidationError") error = handleValidationErrorDB(error);
     if (err.name === "JsonWebTokenError") error = handleJWTError();
     if (err.name === "TokenExpiredError") error = handleJWTExpiredError();
+    if (err.name === "UnauthorizedError")
+      error = new AppError("Unauthorized", StatusCodes.UNAUTHORIZED);
 
     sendErrorProd(error, res);
   }
