@@ -52,7 +52,7 @@ A simple React + Vite + Typescript application. Folder structure
 3. `src`: This folder is where the React front-end application logic goes into
 4. `ui`: This is a template of the application which is basically the design in pure HTML and CSS
 5. env_template: This is the template for the .env file it includes what variables the .env file should contain
-   such as `HANKO_API_URL`, `BACKEND_API_URL` and `PAYSTACK_PUBLIC_KEY`(for paystack payent gateway integration)
+   such as `VITE_HANKO_API_URL`, `VITE_BACKEND_API_URL` and `VITE_PAYSTACK_PUBLIC_KEY`(for paystack payent gateway integration)
 6. other config files like .eslintrc, vite.config.js, tsconfig.json and so on
 7. package.json: Contains packages to be installed to run the application all of which can be installed using `npm install`,
    This file also contains some additional scripts added by me to compile the sass into pure css to be used in the React application and the template which is in the ui folder
@@ -77,7 +77,7 @@ A simple node express application. Folder structure
 5. `models`: Contains mongoose models and schema which defines the database structure for the application
 6. `routers`: Handles API routing
 7. `utils`: Contains utilities to help the application function well
-8. env_template: Works same sas it is with the frontend it should be used as a template to create necessary variables for the application to run such as `NODE_ENV`, `MONGO_URI`, `HANKO_API_URL`, `STATIC_FILES_URL` and `DELIVERY_FEE` which is the static delivery fee used for the application as it is locally for a start
+8. env_template: Works same sas it is with the frontend it should be used as a template to create necessary variables for the application to run such as `NODE_ENV`, `MONGO_URI`, `HANKO_API_URL`, `STATIC_FILES_URL`, `PAYSTACK_SECRET` and `DELIVERY_FEE` which is the static delivery fee used for the application as it is locally for a start
 9. other configuration files and package.json
 
 # Back-end deployment instruction
@@ -88,3 +88,7 @@ A simple node express application. Folder structure
 4. upload resulting meals folder to a static file server that can serve the files for the application
 5. Run with `npm run dev` to run with nodemon or `npm start` for start the application once
 6. Make sure to add the base url for the backend application to the frontend's .env to link them both
+
+# Payment Integration
+
+TastyByte uses paystack for accepting payment online to set it up the `VITE_PAYSTACK_PUBLIC_KEY` needs to be added to the frontend environment variables this is used by the PaystackPop to accept payment and also the `PAYSTACK_SECRET` needs to be added to the backend environment variables this is used for payment validation by the backend. A webhook is set up in `backend/controllers/hooks.controller.js` for validating paystack payments and updating the order status. Payment validation dump is also added to `/backend/data/payment-dump.txt` and also paystack payment response json is stored in `backend/data/payments` folder. To set up paystack a paystack account needs to be created a test account or live account would work and in the paystack settings(API Keys and Webhooks) the API keys can be copied and also the webhook url which should point to url for the backend api in the format `{{BACKEND_API_URL}}/hooks/paystack` to setup the webhook

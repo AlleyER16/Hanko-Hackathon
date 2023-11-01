@@ -1,5 +1,6 @@
 const crypto = require("crypto");
 const fs = require("fs");
+const fsPromises = require("fs/promises");
 const path = require("path");
 
 const { TransactionsModel } = require("../models/transactions.model");
@@ -8,7 +9,7 @@ const { OrdersModel } = require("../models/orders.model");
 const catchAsync = require("../utils/catch-async.util");
 
 const writeToFile = catchAsync(async (filePath, data) => {
-  const func = path.existsSync(filePath) ? fs.appendFile : fs.writeFile;
+  const func = fs.existsSync(filePath) ? fsPromises.appendFile : fsPromises.writeFile;
 
   await func(filePath, `${data}\n`);
 });
@@ -67,20 +68,11 @@ exports.paystackHook = catchAsync(async (req, res) => {
   );
 
   await updateDump(
-    `Custom Fields ${!!paymentData.metadata.custom_fields.find(
-      (field) =>
-        field.variable_name === "order_id" &&
-        transaction.Order.equals(field.value),
-    )}`,
+    `Order ID: ${!!paymentData.metadata.order_id}`,
   );
 
   if (
-    transaction.Amount * 100 !== paymentData.amount ||
-    !paymentData.metadata.custom_fields.find(
-      (field) =>
-        field.variable_name === "order_id" &&
-        transaction.Order.equals(field.value),
-    )
+    transaction.Amount * 100 !== paymentData.amount || !transaction.Order.equals(paymentData.metadata.order_id)
   )
     return res.json({ message: "Success" });
 
