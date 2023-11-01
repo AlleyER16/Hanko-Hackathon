@@ -19,7 +19,7 @@ import Footer from "../../components/Footer/Footer";
 import Navigation from "../../components/Navigation/Navigation";
 import RippleLoader from "../../loaders/RippleLoader/RippleLoader";
 
-import { roundDP } from "../../utils/func";
+import { roundDP, sleep } from "../../utils/func";
 
 const Order = () => {
   const { id: orderId } = useParams();
@@ -31,6 +31,8 @@ const Order = () => {
   );
 
   const [order, setOrder] = useState<tOrder | null>(null);
+
+  const [reload, setReload] = useState(false);
 
   useEffect(() => {
     api_client({
@@ -46,8 +48,11 @@ const Order = () => {
       .catch(() => {
         navigate("/404");
       })
-      .finally(() => {});
-  }, [accessToken, navigate, orderId]);
+      .finally(() => {
+        if (order?.Status === "PENDING-PAYMENT")
+          sleep(3000).then(() => setReload((rl) => !rl));
+      });
+  }, [accessToken, navigate, reload, order?.Status, orderId]);
 
   return (
     <>
@@ -64,7 +69,7 @@ const Order = () => {
                       <tbody>
                         {order.Meals.map((orderItem) => {
                           return (
-                            <tr>
+                            <tr key={orderItem.Meal._id}>
                               <td>
                                 <div className="cart-product">
                                   <img

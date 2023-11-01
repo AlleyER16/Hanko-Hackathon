@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { register, Hanko } from "@teamhanko/hanko-elements";
 
 import { IonIcon } from "@ionic/react";
@@ -19,6 +20,7 @@ const hankoApi = import.meta.env.VITE_HANKO_API_URL;
 
 const Profile = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const hanko = useMemo(() => new Hanko(hankoApi), []);
 
@@ -30,6 +32,13 @@ const Profile = () => {
       // console.error("Error during logout:", error);
     }
   };
+
+  useEffect(() => {
+    hanko.onSessionExpired(() => {
+      dispatch(logoutAction());
+      navigate("/sign-in");
+    });
+  }, [hanko, dispatch, navigate]);
 
   useEffect(() => {
     register(hankoApi).catch(() => {

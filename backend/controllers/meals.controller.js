@@ -53,7 +53,7 @@ exports.getMeals = catchAsync(async (req, res, next) => {
   const skip = getSkip(page, division);
 
   const meals = await MealsModel.find(filterData)
-    .select("Name AvgRatings Price Picture")
+    .select("Name AvgRatings Price Picture Calories")
     .skip(skip)
     .limit(division)
     .sort("-DateAdded")

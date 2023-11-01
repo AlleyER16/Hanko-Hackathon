@@ -6,18 +6,58 @@ const { OrdersModel } = require("../models/orders.model");
 const { TransactionsModel } = require("../models/transactions.model");
 
 const catchAsync = require("../utils/catch-async.util");
-const { sanitizePayload } = require("../utils/functions.utils");
+const {
+  sanitizePayload,
+  getPagination,
+  getSkip,
+} = require("../utils/functions.utils");
 const AppError = require("../utils/app-error.util");
 
 exports.getOrders = catchAsync(async (req, res, next) => {
-  const orders = await OrdersModel.find({
+  const { page: pg, division: div } = req.query;
+
+  const page = !Number.isNaN(+pg) ? +pg : 1;
+  const division = !Number.isNaN(+div) ? +div : 12;
+
+  const filterData = {
     User: req.user._id,
     Status: { $ne: "PENDING-PAYMENT" },
-  }).sort("-DateCreated");
+  };
+
+  let numRecords = await OrdersModel.find(filterData).countDocuments();
+  const pagination = getPagination(numRecords, division);
+  const skip = getSkip(page, division);
+
+  const orders = await OrdersModel.find(filterData)
+    .sort("-DateCreated")
+    .select("-User")
+    .skip(skip)
+    .limit(division)
+    .populate({ path: "Meals.Meal", select: "Picture" })
+    .lean({ virtuals: ["Meals.Meal.PicturePath"] });
+
+  // last pending payment order
+  if (page === 1) {
+    const order = await OrdersModel.find({
+      User: req.user._id,
+      Status: "PENDING-PAYMENT",
+    })
+      .sort("-DateCreated")
+      .select("-User")
+      .limit(1)
+      .populate({ path: "Meals.Meal", select: "Picture" })
+      .lean({ virtuals: ["Meals.Meal.PicturePath"] });
+
+    if (order.length) {
+      orders.unshift(order[0]);
+      numRecords += 1;
+    }
+  }
 
   res.json({
     status: "success",
     message: "Orders fetched successfully",
+    meta_data: { num_records: numRecords, page, division, pagination },
     data: orders,
   });
 });

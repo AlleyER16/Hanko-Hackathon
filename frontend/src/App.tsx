@@ -8,6 +8,7 @@ import Catalog from "./pages/Catalog/Catalog";
 import Meal from "./pages/Meal/Meal";
 import Order from "./pages/Order/Order";
 import Cart from "./pages/Cart/Cart";
+import Orders from "./pages/Orders/Orders";
 import Login from "./pages/Login/Login";
 import Profile from "./pages/Profile/Profile";
 import NotFound from "./pages/NotFound/NotFound";
@@ -22,6 +23,7 @@ function App() {
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/meal/:id" element={<Meal />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/orders" element={<Orders />} />
         <Route path="/order/:id" element={<Order />} />
         <Route path="/sign-in" element={<Login />} />
         <Route path="/profile" element={<Profile />} />

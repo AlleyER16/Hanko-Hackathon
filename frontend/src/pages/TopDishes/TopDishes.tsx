@@ -1,14 +1,35 @@
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
 import { IonIcon } from "@ionic/react";
 import { callOutline } from "ionicons/icons";
+
+import { tRootState } from "../../store";
+
+import useData from "../../hooks/useData/useData";
 
 import Navigation from "../../components/Navigation/Navigation";
 import Newsletter from "../../components/Newsletter/Newsletter";
 import Footer from "../../components/Footer/Footer";
+import VerticalBarLoader from "../../loaders/VerticalBarLoader/VerticalBarLoader";
+import TopDish from "../../components/TopDish/TopDish";
 
 import foodBg2 from "../../assets/img/food-bg-2.avif";
 import foodBg4 from "../../assets/img/food-bg-4.avif";
 
 const TopDishes = () => {
+  const topDishes = useSelector((state: tRootState) => state.cache.topDishes);
+
+  const { fetchTopDishes } = useData();
+
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    fetchTopDishes().catch(() => {
+      setError(true);
+    });
+  }, [fetchTopDishes]);
+
   return (
     <>
       <Navigation />
@@ -35,7 +56,15 @@ const TopDishes = () => {
       </header>
       <section className="section">
         <div className="container section__container">
-          <div className="top-dishes"></div>
+          {!error && !topDishes ? <VerticalBarLoader /> : null}
+          {error ? (
+            <div className="text-center">Error fetching data. Reload Page</div>
+          ) : null}
+          <div className="top-dishes">
+            {topDishes?.map((meal, i) => (
+              <TopDish {...meal} right={i % 2 !== 0} key={i} />
+            ))}
+          </div>
         </div>
       </section>
       <Newsletter />

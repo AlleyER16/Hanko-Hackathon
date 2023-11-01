@@ -87,4 +87,13 @@ const OrdersSchema = new mongoose.Schema(
 // plugin
 OrdersSchema.plugin(mongooseLeanVirtuals);
 
+// PRE AND POST HOOKS
+
+// hide __v
+OrdersSchema.pre(/^find/, function (next) {
+  this.select("-__v");
+
+  next();
+});
+
 exports.OrdersModel = mongoose.model("Orders", OrdersSchema);

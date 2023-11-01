@@ -105,6 +105,7 @@ const Meal = () => {
                               AvgRatings: meal.AvgRatings,
                               Price: meal.Price,
                               PicturePath: meal.PicturePath,
+                              Calories: meal.Calories,
                             })
                           )
                     }

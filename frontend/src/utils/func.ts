@@ -35,3 +35,12 @@ export const isNumber = (value: string) => {
   // if value is not blank, then test the regex
   return re.test(value);
 };
+
+export const sleep = (milliseconds: number) => {
+  return new Promise((resolve) => {
+    const interval = window.setInterval(() => {
+      resolve("Woken Up");
+      window.clearInterval(interval);
+    }, milliseconds);
+  });
+};
