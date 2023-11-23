@@ -30,7 +30,7 @@ const Orders = () => {
   const [reload, setReload] = useState(false);
 
   const [page, setPage] = useState<number>(1);
-  const [division] = useState<number>(8);
+  const [division] = useState<number>(5);
 
   // const [numRecords, setNumRecords] = useState(0);
   const [pagination, setPagination] = useState(0);

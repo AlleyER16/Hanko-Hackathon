@@ -9,7 +9,9 @@ const { OrdersModel } = require("../models/orders.model");
 const catchAsync = require("../utils/catch-async.util");
 
 const writeToFile = catchAsync(async (filePath, data) => {
-  const func = fs.existsSync(filePath) ? fsPromises.appendFile : fsPromises.writeFile;
+  const func = fs.existsSync(filePath)
+    ? fsPromises.appendFile
+    : fsPromises.writeFile;
 
   await func(filePath, `${data}\n`);
 });
@@ -67,12 +69,11 @@ exports.paystackHook = catchAsync(async (req, res) => {
     }`,
   );
 
-  await updateDump(
-    `Order ID: ${!!paymentData.metadata.order_id}`,
-  );
+  await updateDump(`Order ID: ${!!paymentData.metadata.order_id}`);
 
   if (
-    transaction.Amount * 100 !== paymentData.amount || !transaction.Order.equals(paymentData.metadata.order_id)
+    transaction.Amount * 100 !== paymentData.amount ||
+    !transaction.Order.equals(paymentData.metadata.order_id)
   )
     return res.json({ message: "Success" });
 
